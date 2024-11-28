@@ -1,0 +1,11 @@
+# triton_server
+backend/triton_server/models
+backend/triton_server/stable-diffusion-v1-4-onnx
+backend/image_generator/log
+
+# image_generator
+__pycache__
+
+# All
+.env
+log
