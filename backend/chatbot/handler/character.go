@@ -5,7 +5,6 @@ import (
 	"ai-artist/chatbot/utils/logging"
 	"encoding/json"
 	"fmt"
-	"log"
 	"net/http"
 )
 
@@ -13,7 +12,7 @@ func (h *Handler) characterHandler(w http.ResponseWriter, r *http.Request) {
 	var request requestBody
 	err := json.NewDecoder(r.Body).Decode(&request)
 	if err != nil {
-		log.Println(err)
+		rend.JSON(w, http.StatusBadRequest, nil)
 		return
 	}
 	defer r.Body.Close()
