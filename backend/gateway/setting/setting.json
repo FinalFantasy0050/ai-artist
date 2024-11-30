@@ -1,0 +1,5 @@
+{
+    "server_port":"443",
+    "image_generator_server":"http://103.0.0.3:30000",
+    "chatbot_server":"http://103.0.0.5:30001"
+}
