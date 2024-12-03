@@ -20,19 +20,33 @@ func initiallization() {
 	logging.Init()
 }
 
-func startServer() {
+func startServerHTTPS() {
 	mux := handler.CreateHandler()
 	handler := negroni.Classic()
 	defer mux.Close()
 
-	handler.Use(corsController.SetCors("*", "GET, POST, PUT, DELETE", "*", true))
+	handler.Use(corsController.SetCors("*", "GET, POST, PUT, DELETE, OPTIONS", "*", true))
+	handler.UseHandler(mux)
+
+	logging.Logger.Info("HTTPS server start.")
+	http.ListenAndServeTLS(":"+setting.Setting.ServerPort, cert, key, handler)
+}
+
+func startServerHTTP() {
+	mux := handler.CreateHandler()
+	handler := negroni.Classic()
+	defer mux.Close()
+
+	handler.Use(corsController.SetCors("*", "GET, POST, PUT, DELETE, OPTIONS", "*", true))
 	handler.UseHandler(mux)
 
 	logging.Logger.Info("HTTP server start.")
-	http.ListenAndServeTLS(":"+setting.Setting.ServerPort, cert, key, handler)
+	http.ListenAndServe(":"+setting.Setting.ServerPort, handler)
 }
 
 func main() {
 	initiallization()
-	startServer()
+
+	startServerHTTPS()
+	//startServerHTTP()
 }

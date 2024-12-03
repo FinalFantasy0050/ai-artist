@@ -7,6 +7,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"log"
 	"net/http"
 	"os"
 	"path/filepath"
@@ -17,6 +18,8 @@ import (
 const inferImageMethod = "/infer/image"
 
 func (h *Handler) imageHandler(w http.ResponseWriter, r *http.Request) {
+	log.Printf("Received %s request for %s from %s\n", r.Method, r.URL.Path, r.RemoteAddr)
+
 	var req requestBody
 	err := json.NewDecoder(r.Body).Decode(&req)
 	if err != nil {
@@ -78,6 +81,7 @@ func (h *Handler) imageHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	defer resp.Body.Close()
 
+	w.Header().Set("Content-Type", "application/json")
 	rend.Data(w, http.StatusOK, respBody)
 }
 
