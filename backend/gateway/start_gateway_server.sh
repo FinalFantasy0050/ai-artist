@@ -17,5 +17,6 @@ docker run --rm $1 $2 $3 --name $SERVICE_NAME \
     -v $PWD/log:/app/log \
     -v $PWD/key.pem:/app/key.pem \
     -v $PWD/cert.pem:/app/cert.pem \
+    -v $PWD/public:/app/public \
     -p 443:443 \
     $SERVICE_NAME || { exit 1; }
