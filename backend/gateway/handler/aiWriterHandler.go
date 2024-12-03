@@ -58,5 +58,6 @@ func (h *Handler) aiWriterHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	defer resp.Body.Close()
 
+	w.Header().Set("Content-Type", "application/json")
 	rend.Data(w, http.StatusOK, respBody)
 }

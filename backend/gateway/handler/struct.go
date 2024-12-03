@@ -16,3 +16,7 @@ type requestBody struct {
 	Prompt string `json:"prompt"`
 	User   string `json:"user"`
 }
+
+type userRequestBody struct {
+	User string `json:"user"`
+}
