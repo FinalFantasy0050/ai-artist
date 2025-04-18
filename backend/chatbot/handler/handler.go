@@ -8,7 +8,6 @@ func CreateHandler() *Handler {
 		Handler: mux,
 	}
 
-	mux.HandleFunc("/ping", handler.pingHandler).Methods("GET")
 	mux.HandleFunc("/infer/writer", handler.writerHandler).Methods("POST")
 	mux.HandleFunc("/infer/character", handler.characterHandler).Methods("POST")
 
