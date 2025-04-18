@@ -22,7 +22,6 @@ type responseBody struct {
 
 func (h *Handler) writerHandler(w http.ResponseWriter, r *http.Request) {
 	var request requestBody
-	err := json.NewDecoder(r.Body).Decode(&request)
 	if err != nil {
 		rend.JSON(w, http.StatusBadRequest, nil)
 		return
