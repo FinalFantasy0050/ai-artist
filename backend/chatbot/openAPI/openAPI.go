@@ -4,7 +4,6 @@ import (
 	"ai-artist/chatbot/setting"
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"io"
 	"log"
 	"net/http"
