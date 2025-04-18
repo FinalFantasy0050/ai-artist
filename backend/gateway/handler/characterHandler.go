@@ -2,7 +2,6 @@ package handler
 
 import (
 	"ai-artist/gateway/setting"
-	usermanager "ai-artist/gateway/userManager"
 	"bytes"
 	"encoding/json"
 	"net/http"
