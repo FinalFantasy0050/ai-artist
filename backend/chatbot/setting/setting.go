@@ -6,8 +6,6 @@ import (
 	"os"
 )
 
-const settingFilePath string = "./setting/setting.json"
-
 func Init() {
 	err := readSettingFile()
 	if err != nil {
