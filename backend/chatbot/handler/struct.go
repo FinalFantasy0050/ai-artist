@@ -6,8 +6,6 @@ import (
 	"github.com/unrolled/render"
 )
 
-var rend *render.Render = render.New()
-
 type Handler struct {
 	http.Handler
 }
