@@ -4,7 +4,6 @@ import (
 	openapi "ai-artist/chatbot/openAPI"
 	"ai-artist/chatbot/utils/logging"
 	"encoding/json"
-	"fmt"
 	"net/http"
 )
 
